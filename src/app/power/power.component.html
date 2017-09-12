@@ -1,0 +1,27 @@
+<p>
+  power works!
+</p>
+<fieldset>
+  <legend>PowerComponent</legend>
+  <form (submit)="onSubmit()">
+    <label>Initial Power Level: 
+      <input 
+        type="number" 
+        name="power"
+        required 
+        min="1"
+        max="100"
+        [(ngModel)] = "user.power"
+        #power = "ngModel"
+        />
+    </label>
+    <input type="submit" value="Calculate Powers" [disabled]="!power.valid" />
+  </form>
+  <p style="color: red;" *ngIf="power.invalid && (power.dirty || power.touched)">Please enter power level between 1 to 100</p>
+  <app-power-human [myUser]="calculatedUser"></app-power-human>
+  <app-power-saiyan [myUser0]="calculatedUser"></app-power-saiyan>
+  <app-power-super-saiyan [myUser1]="calculatedUser"></app-power-super-saiyan>
+  <app-power-super-saiyan-two [myUser2]="calculatedUser"></app-power-super-saiyan-two>
+  <app-power-super-saiyan-three [myUser3]="calculatedUser"></app-power-super-saiyan-three>
+  <app-power-super-saiyan-four [myUser4]="calculatedUser"></app-power-super-saiyan-four>
+</fieldset>
